@@ -62,7 +62,7 @@ button {
   width: 100%;
   min-width: 250px;
 }
-@media (min-width: 500px) {
+@media (min-width: 1025px) {
   .SurvList_Item {
     width: 10%;
   }
@@ -78,8 +78,8 @@ button {
 .Surv_HookButton {
   position: relative;
   display: flex;
-  width: 20vh;
-  height: 20vh;
+  width: 19vh;
+  height: 19vh;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -97,7 +97,7 @@ button {
 .Surv_HookButton:active {
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.8);
 }
-@media (min-width: 500px) {
+@media (min-width: 1025px) {
   .Surv_HookButton {
     width: 100px;
     height: 100px;
@@ -125,7 +125,6 @@ button {
   transform: scale(0.8);
 }
 
-/* When survivor is dead (you'll toggle a class on button) */
 .Surv.dead .Surv_HookButton {
   user-select: none;
   pointer-events: none;
@@ -145,12 +144,17 @@ button {
   position: relative;
   transform: skew(-20deg);
   border: 1px solid #333;
-  width: 10px;
+  width: 5vw;
   overflow: hidden;
 }
 @media (prefers-color-scheme: dark) {
   .Surv_HookTick {
       border-color: #700000;
+  }
+}
+@media (min-width: 1025px) {
+  .Surv_HookTick {
+    width: 20px;
   }
 }
 
