@@ -1,0 +1,213 @@
+/* Reset some default browser styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: #121212;
+      color: white;
+}
+
+/* Ensure the document takes up full height */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+*, *::before,*::after {
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+/* Main Styles */
+
+.SurvList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px;
+}
+
+.SurvList_Item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 250px;
+}
+@media (min-width: 500px) {
+  .SurvList_Item {
+    width: 10%;
+  }
+}
+
+.Surv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.Surv_HookButton {
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #b30000; /* dark red, like a rusty hook */
+  border: 2px solid #333; /* dark gray */
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.Surv_HookButton:hover {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.Surv_HookButton:active {
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Common styles for both images */
+.Surv_HookImage,
+.Surv_SkullImage {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Default states */
+.Surv_HookImage {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Surv_SkullImage {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* When survivor is dead (you'll toggle a class on button) */
+.Surv.dead .Surv_HookButton {
+  user-select: none;
+  pointer-events: none;
+}
+
+.Surv.dead .Surv_HookImage {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+.Surv.dead .Surv_SkullImage {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Surv_HookTick {
+  position: relative;
+  transform: skew(-20deg);
+  border: 1px solid #333;
+  width: 10px;
+  overflow: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  .Surv_HookTick {
+      border-color: #700000;
+  }
+}
+
+.Surv_HookTick::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  top: auto;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #b30000;
+  transition: bottom 0.4s ease;
+}
+
+.Surv_HookTick.active::after {
+  bottom: 0;
+}
+
+.Surv_DecreaseButton {
+  background-color: transparent;
+  border: 2px solid #b30000;
+  color: #b30000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.Surv_DecreaseButton:hover {
+  background-color: #b30000;
+  color: white;
+}
+
+/* Active (pressed) effect */
+.Surv_DecreaseButton:active {
+  background-color: #800000;
+  border-color: #800000;
+}
+
+.ResetButtonWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.ResetButton {
+  padding: 10px 20px;
+  background-color: #921319;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.ResetButton:hover {
+  background-color: #a52a2a;
+}
