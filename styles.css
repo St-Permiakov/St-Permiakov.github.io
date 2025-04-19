@@ -41,6 +41,7 @@ button {
   text-align: inherit;
   text-transform: inherit;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 /* Main Styles */
